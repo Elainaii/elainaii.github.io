@@ -1,17 +1,85 @@
 <?xml version="1.0"?>
 <rss version="2.0">
     <channel>
-        <title>ShokaX Can</title>
+        <title>灰之魔女の妙妙屋</title>
         <subtitle></subtitle>
         <icon>https://graywitch.xyz/assets/favicon.ico</icon>
         <link>https://graywitch.xyz</link>
         <author>
-          <name>John Doe</name>
+          <name>Elaina</name>
         </author>
-        <description></description>
-        <language>zh-cn</language>
-        <pubDate>Sat, 21 Mar 2026 15:00:15 +0800</pubDate>
-        <lastBuildDate>Sat, 21 Mar 2026 15:00:15 +0800</lastBuildDate>
+        <description>灰之魔女のblog</description>
+        <language>zh-CN</language>
+        <pubDate>Fri, 27 Mar 2026 19:14:13 +0800</pubDate>
+        <lastBuildDate>Fri, 27 Mar 2026 19:14:13 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://graywitch.xyz/2026/03/27/deploy/</guid>
+            <title>deploy</title>
+            <link>https://graywitch.xyz/2026/03/27/deploy/</link>
+            <pubDate>Fri, 27 Mar 2026 19:14:13 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;本次实验使用 &lt;strong&gt;Hexo 框架&lt;/strong&gt; 搭配 &lt;strong&gt;ShokaX 主题&lt;/strong&gt;，通过 &lt;strong&gt;GitHub&lt;/strong&gt; 进行版本管理，并使用 &lt;strong&gt;Vercel&lt;/strong&gt; 托管构建，最后通过 &lt;strong&gt;Cloudflare&lt;/strong&gt; 完成域名解析&lt;/p&gt;
+&lt;h2 id=&#34;一-环境准备与本地部署&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一-环境准备与本地部署&#34;&gt;#&lt;/a&gt; 一、 环境准备与本地部署&lt;/h2&gt;
+&lt;p&gt;首先在本地环境中配置 Node.js 环境，使用 &lt;code&gt;pnpm&lt;/code&gt; 作为包管理工具&lt;/p&gt;
+&lt;h3 id=&#34;1-克隆项目与安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-克隆项目与安装&#34;&gt;#&lt;/a&gt; 1. 克隆项目与安装&lt;/h3&gt;
+&lt;p&gt;执行以下命令拉取 ShokaX 主题的开箱即用版本并安装依赖：&lt;/p&gt;
+&lt;pre class=&#34;shiki shiki-themes vitesse-light vitesse-dark&#34; style=&#34;background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee&#34; tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;git&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; clone&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; https://github.com/theme-shoka-x/shokax-can&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; --depth=1&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#998418;--shiki-dark:#B8A965&#34;&gt;cd&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; shokax-can&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;pnpm&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; install&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;hexo&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; s&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;2-效果预览&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-效果预览&#34;&gt;#&lt;/a&gt; 2. 效果预览&lt;/h3&gt;
+&lt;p&gt;拉取 GitHub 开源代码并运行 &lt;code&gt;hexo s&lt;/code&gt; 后，在浏览器访问 &lt;code&gt;http://localhost:4000&lt;/code&gt;。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;二-代码版本管理与推送&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#二-代码版本管理与推送&#34;&gt;#&lt;/a&gt; 二、 代码版本管理与推送&lt;/h2&gt;
+&lt;p&gt;本地部署完成后，需要将项目代码推送到自己的 GitHub 仓库，以便 Vercel 进行持续集成。&lt;/p&gt;
+&lt;h3 id=&#34;1-创建远程仓库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-创建远程仓库&#34;&gt;#&lt;/a&gt; 1. 创建远程仓库&lt;/h3&gt;
+&lt;p&gt;在 GitHub 上新建一个名为 &lt;code&gt;my-blog&lt;/code&gt;（名称自定）的私有或公开仓库。&lt;/p&gt;
+&lt;h3 id=&#34;2-推送到-github&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-推送到-github&#34;&gt;#&lt;/a&gt; 2. 推送到 GitHub&lt;/h3&gt;
+&lt;p&gt;在本地项目根目录下执行：&lt;/p&gt;
+&lt;pre class=&#34;shiki shiki-themes vitesse-light vitesse-dark&#34; style=&#34;background-color:#ffffff;--shiki-dark-bg:#121212;color:#393a34;--shiki-dark:#dbd7caee&#34; tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A0ADA0;--shiki-dark:#758575DD&#34;&gt;# 初始化 git（如果克隆时已有 .git 文件夹可跳过此步，但建议重新初始化以解除原作者仓库关联）&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;rm&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; -rf&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; .git&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;git&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; init&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A0ADA0;--shiki-dark:#758575DD&#34;&gt;# 添加远程仓库地址&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;git&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; remote&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; add&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; origin&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; https://github.com/你的用户名/你的仓库名.git&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#A0ADA0;--shiki-dark:#758575DD&#34;&gt;# 提交并推送&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;git&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; add&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; .&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;git&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; commit&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; -m&lt;/span&gt;&lt;span style=&#34;color:#B5695977;--shiki-dark:#C98A7D77&#34;&gt; &#34;&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt;Initial blog commit&lt;/span&gt;&lt;span style=&#34;color:#B5695977;--shiki-dark:#C98A7D77&#34;&gt;&#34;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;git&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; branch&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; -M&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; main&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;line&#34;&gt;&lt;span style=&#34;color:#59873A;--shiki-dark:#80A665&#34;&gt;git&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; push&lt;/span&gt;&lt;span style=&#34;color:#A65E2B;--shiki-dark:#C99076&#34;&gt; -u&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; origin&lt;/span&gt;&lt;span style=&#34;color:#B56959;--shiki-dark:#C98A7D&#34;&gt; main&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;三-线上托管vercel&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#三-线上托管vercel&#34;&gt;#&lt;/a&gt; 三、 线上托管（Vercel）&lt;/h2&gt;
+&lt;p&gt;接下来使用 &lt;strong&gt;Vercel&lt;/strong&gt; 进行自动化构建部署。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;登录 &lt;a href=&#34;https://vercel.com/&#34;&gt;Vercel 官网&lt;/a&gt;，点击 &lt;strong&gt;&amp;quot;Add New&amp;quot; -&amp;gt; &amp;quot;Project&amp;quot;&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;导入刚刚推送的 GitHub 仓库。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;项目配置：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Framework Preset:&lt;/strong&gt; 选择 &lt;code&gt;Other&lt;/code&gt;（或 Vercel 会自动识别为 Hexo）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Build Command:&lt;/strong&gt; &lt;code&gt;hexo generate&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Output Directory:&lt;/strong&gt; &lt;code&gt;public&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Install Command:&lt;/strong&gt; &lt;code&gt;pnpm install&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;点击 &lt;strong&gt;Deploy&lt;/strong&gt;，等待几分钟后，Vercel 会生成一个以 &lt;code&gt;.vercel.app&lt;/code&gt; 结尾的临时访问域名。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;四-域名解析与-cdn-优化&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#四-域名解析与-cdn-优化&#34;&gt;#&lt;/a&gt; 四、 域名解析与 CDN 优化&lt;/h2&gt;
+&lt;p&gt;为了专业性和访问速度，我们在 &lt;strong&gt;Cloudflare&lt;/strong&gt; 绑定自己的域名。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在 Vercel 项目面板进入 &lt;code&gt;Settings -&amp;gt; Domains&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;登录 Cloudflare 账户，选择 &lt;code&gt;graywitch.xyz&lt;/code&gt; 域名。&lt;/li&gt;
+&lt;li&gt;进入 &lt;strong&gt;DNS 设置&lt;/strong&gt;，添加一条Vercel提示的 &lt;strong&gt;A&lt;/strong&gt; 记录&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;五-实验总结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#五-实验总结&#34;&gt;#&lt;/a&gt; 五、 实验总结&lt;/h2&gt;
+&lt;p&gt;部署完成后，等待 DNS 全球生效。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;最终访问地址：&lt;/strong&gt; 浏览器访问 &lt;a href=&#34;https://graywitch.xyz&#34;&gt;https://graywitch.xyz&lt;/a&gt; 即可看到实时发布的博客。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工作流：&lt;/strong&gt; 以后只需在本地执行 &lt;code&gt;hexo n &amp;quot;文章名&amp;quot;&lt;/code&gt; 写完文章后，通过 &lt;code&gt;git push&lt;/code&gt; 推送至 GitHub，Vercel 就会自动触发构建并更新网站，实现了零人工干预的自动化运维。&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://graywitch.xyz/2026/03/21/hello-world/</guid>
             <title>Hello World</title>
