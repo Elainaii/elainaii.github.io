@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>智镜 408 离线知识图谱 · 408 记忆卡</title>
+  <link rel="stylesheet" href="./assets/css/graph.css"></head>
+<body>
+  <div class="app-shell">
+    <main class="page">
+      <section class="mc-wrap">
+        <header class="mc-head">
+          <h1 id="pageTitle">408 数据结构记忆锚点</h1>
+          <div class="mc-actions">
+            <span class="mc-due">全部卡片 <b id="statCards">0</b> 张</span>
+            <span class="mc-warn">知识点 <b id="statConcepts">0</b> 个 · 习题 <b id="statExercises">0</b> 题</span>
+            <button class="edit-action primary" type="button" id="addExerciseBtn">新增习题</button>
+          </div>
+          <div class="mc-tabs" id="subjectTabs" aria-label="科目"></div>
+          <section class="mindmap-module" aria-label="思维导图">
+            <div class="mindmap-head">
+              <h2>思维导图</h2>
+              <span class="mindmap-meta" id="mindmapMeta"></span>
+            </div>
+            <div class="mindmap-stage">
+              <div class="mindmap-canvas" id="mindmapCanvas"></div>
+            </div>
+          </section>
+          <div class="mc-tools">
+            <label class="mc-search" aria-label="搜索卡片">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="m21 21-4.3-4.3m1.3-5.2a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <input id="searchInput" type="search" placeholder="搜索考点、题目、关键词">
+            </label>
+            <div class="mc-filter" id="tierFilter"></div>
+          </div>
+        </header>
+        <p class="mc-count" id="cardCount"></p>
+        <div id="chapterList"></div>
+        <section class="sources" id="sources"></section>
+      </section>
+    </main>
+    <aside class="toc-float" id="tocFloat" aria-label="目录">
+      <button class="toc-trigger" type="button" aria-label="显示目录">☰</button>
+      <div class="toc-panel" id="tocPanel"></div>
+    </aside>
+    <footer class="footer">智镜 408 内部知识库</footer>
+  </div>
+  <div class="editor-mask hidden" id="editorModal" role="dialog" aria-modal="true" aria-labelledby="editorTitle">
+    <div class="editor-dialog">
+      <div class="editor-head">
+        <h2 id="editorTitle">编辑卡片</h2>
+        <button class="editor-close" type="button" id="editorClose" aria-label="关闭">×</button>
+      </div>
+      <form class="editor-form" id="editorForm">
+        <input type="hidden" id="editMode">
+        <input type="hidden" id="editCardId">
+        <div class="editor-grid">
+          <div class="editor-field">
+            <label for="editTopicId">章节</label>
+            <select id="editTopicId"></select>
+          </div>
+          <div class="editor-field">
+            <label for="editType">类型</label>
+            <input id="editType" type="text" placeholder="知识点 / 习题 / 流程">
+          </div>
+          <div class="editor-field">
+            <label for="editTier">考频</label>
+            <select id="editTier">
+              <option value="high">高频</option>
+              <option value="mid">中频</option>
+              <option value="low">低频</option>
+              <option value="rare">补充</option>
+            </select>
+          </div>
+        </div>
+        <div class="editor-field">
+          <label for="editName">标题 / 题目</label>
+          <input id="editName" type="text" required>
+        </div>
+        <div class="editor-field">
+          <label for="editCore">速记内容 / 题干</label>
+          <textarea id="editCore" required></textarea>
+        </div>
+        <div class="editor-field">
+          <label for="editBody">展开内容 / 答案</label>
+          <textarea id="editBody"></textarea>
+        </div>
+        <p class="editor-tip">修改会自动保存在当前浏览器。重新生成 HTML 后，可用“导出修改 / 导入修改”把这些自定义内容带回来。</p>
+        <div class="editor-actions">
+          <button class="editor-btn" type="button" id="editorCancel">取消</button>
+          <button class="editor-btn primary" type="submit">保存</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="./assets/js/graph-data.js"></script>
+  <script src="./assets/js/graph.js"></script>
+</body>
+</html>
