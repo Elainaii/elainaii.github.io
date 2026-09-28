@@ -4192,3 +4192,123 @@ footer {
 @property --tw-drop-shadow-color { syntax:"*";inherits:false }
 @property --tw-drop-shadow-alpha { syntax:"<percentage>";inherits:false;initial-value:100% }
 @property --tw-drop-shadow-size { syntax:"*";inherits:false }
+
+/* Per-option review marks are separate from the selected answer. */
+.exam-options .option-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+.exam-options .option-entry > .answer-choice {
+  width: 100%;
+}
+.option-entry.mark-eliminated > .answer-choice > span {
+  text-decoration: line-through;
+  opacity: .64;
+}
+.exam-options .option-entry.mark-unsure > .answer-choice:not(.selected) {
+  border-color: #b89755;
+}
+.option-mark-controls {
+  display: flex;
+  align-items: stretch;
+  gap: 5px;
+}
+.exam-options .option-mark-controls button,
+.image-answer-choices .option-mark-controls button {
+  min-height: 0;
+  padding: 5px 8px;
+  border: 1px solid #d7d9e2;
+  border-radius: 8px;
+  background: #f7f8fb;
+  color: #62697a;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.option-mark-controls button.active:first-child {
+  background: #fff0f1;
+  border-color: #d46979;
+  color: #ab4052;
+}
+.option-mark-controls button.active:last-child {
+  background: #fff5dd;
+  border-color: #bd9140;
+  color: #825d1d;
+}
+.image-answer-choices .option-entry {
+  display: grid;
+  gap: 6px;
+}
+.image-answer-choices .option-entry > .answer-choice {
+  width: 100%;
+}
+.image-answer-choices .option-mark-controls button {
+  flex: 1;
+}
+.option-mark-review {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0;
+  color: #454a58;
+  font-size: 12px;
+}
+.option-mark-review span {
+  border-radius: 7px;
+  padding: 5px 8px;
+  background: #f2f0e9;
+}
+.draft-resume {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 20px 0;
+  padding: 18px 22px;
+  border: 1px solid #cfcdf9;
+  border-radius: 14px;
+  background: #f5f4ff;
+}
+.draft-resume > div {
+  display: grid;
+  gap: 4px;
+}
+.draft-resume span {
+  color: #696e7f;
+  font-size: 13px;
+}
+.draft-resume button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 9px;
+  padding: 11px 14px;
+  background: var(--purple);
+  color: #fff;
+  font-weight: 700;
+}
+.exam-back-to-settings {
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 0 16px;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: #646b7e;
+  font-size: 13px;
+}
+.exam-back-to-settings:hover {
+  color: var(--purple);
+}
+.leave-modal {
+  width: min(500px, 92vw);
+}
+.leave-modal > div {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+@media (max-width: 650px) {
+  .exam-options .option-entry { grid-template-columns: 1fr; }
+  .option-mark-controls button { flex: 1; }
+  .draft-resume { align-items: stretch; flex-direction: column; }
+  .leave-modal > div { grid-template-columns: 1fr; }
+}
