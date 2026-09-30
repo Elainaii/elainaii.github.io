@@ -4270,6 +4270,58 @@ footer {
   border-radius: 14px;
   background: #f5f4ff;
 }
+.backup-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 20px 0;
+  padding: 15px 22px;
+  border: 1px solid #e4e5ed;
+  border-radius: 14px;
+  background: #fff;
+}
+.backup-entry > div {
+  display: grid;
+  gap: 4px;
+}
+.backup-entry span {
+  color: #777d8d;
+  font-size: 12px;
+}
+.backup-entry button {
+  flex: none;
+  cursor: pointer;
+  padding: 9px 13px;
+  border: 1px solid #cbc9f5;
+  border-radius: 9px;
+  background: #f7f6ff;
+  color: var(--purple);
+  font-weight: 700;
+}
+.backup-modal {
+  width: min(520px, 92vw);
+}
+.backup-modal > div {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.backup-modal .backup-file-input {
+  display: none;
+}
+.backup-modal .backup-ready {
+  color: #277447;
+}
+.backup-modal .backup-error {
+  color: #b73f48;
+}
+.backup-modal .backup-close {
+  margin-top: 12px;
+  border: 0;
+}
+.backup-modal button:disabled {
+  cursor: not-allowed;
+  opacity: .45;
+}
 .draft-resume > div {
   display: grid;
   gap: 4px;
@@ -4310,5 +4362,10 @@ footer {
   .exam-options .option-entry { grid-template-columns: 1fr; }
   .option-mark-controls button { flex: 1; }
   .draft-resume { align-items: stretch; flex-direction: column; }
+  .backup-entry { align-items: stretch; flex-direction: column; }
+  .backup-modal > div { grid-template-columns: 1fr; }
+  .hero-stats { flex-wrap: wrap; }
+  .hero-stats > div { min-width: 35%; }
+  .hero-stats > i:nth-of-type(2) { display: none; }
   .leave-modal > div { grid-template-columns: 1fr; }
 }
