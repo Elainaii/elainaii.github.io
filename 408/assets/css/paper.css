@@ -4369,3 +4369,23 @@ footer {
   .hero-stats > i:nth-of-type(2) { display: none; }
   .leave-modal > div { grid-template-columns: 1fr; }
 }
+
+.submit-unanswered-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  color: var(--ink, #34384b);
+  font-size: 13px;
+  cursor: pointer;
+}
+.submit-unanswered-option input {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  accent-color: var(--purple);
+}
+.confirm-modal .submit-unanswered-note {
+  margin-bottom: 18px;
+}
