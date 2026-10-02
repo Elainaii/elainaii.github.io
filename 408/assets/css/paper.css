@@ -4426,3 +4426,35 @@ footer {
   .collection-toolbar, .collection-item { padding: 14px; }
   .collection-count { flex-basis: 100%; }
 }
+
+/* Settlement status: unanswered is neutral; wrong takes priority over doubt. */
+.settlement-nav > div button.blank {
+  color: #9298a6;
+  background: #fff;
+  border-color: #dfe1e8;
+}
+.settlement-nav > div button.marked {
+  color: #956900;
+  background: #fff8db;
+  border-color: #dfbd59;
+}
+.settlement-nav > div button.current {
+  box-shadow: 0 0 0 2px #a9adba;
+}
+.settlement-nav > div button.blank.current {
+  box-shadow: none;
+}
+.settlement-nav > div button.flagged { position: relative; }
+.settlement-nav > div button.flagged::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #dfad2a;
+}
+.settlement-meta > b.marked { color: #a77b00; }
+.settlement-meta > b.blank { color: #9298a6; }
+.next-wrong:disabled { opacity: .45; cursor: default; }
