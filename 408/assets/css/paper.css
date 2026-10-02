@@ -4206,9 +4206,6 @@ footer {
   text-decoration: line-through;
   opacity: .64;
 }
-.exam-options .option-entry.mark-unsure > .answer-choice:not(.selected) {
-  border-color: #b89755;
-}
 .option-mark-controls {
   display: flex;
   align-items: stretch;
@@ -4458,3 +4455,32 @@ footer {
 .settlement-meta > b.marked { color: #a77b00; }
 .settlement-meta > b.blank { color: #9298a6; }
 .next-wrong:disabled { opacity: .45; cursor: default; }
+
+/* Anchor doubt markers to the option letter in practice and settlement. */
+.option-letter {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  line-height: 1.25;
+}
+.option-letter.is-unsure::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  right: -7px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f2bd32;
+  box-shadow: 0 0 0 1.5px #fff;
+  pointer-events: none;
+}
+.image-option-review {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin: 16px 0;
+  padding: 0 7px;
+  font-size: 17px;
+  color: #34394a;
+}
